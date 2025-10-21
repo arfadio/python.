@@ -35,4 +35,8 @@ async def ban_error(ctx, error):
     elif isinstance(error, commands.MemberNotFound):
         await ctx.send("User not found.")
 
+@bot.event
+async def on_message(message):
+    await message.channel.send(message.content)
+
 bot.run(token)
